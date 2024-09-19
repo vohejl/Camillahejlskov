@@ -1,0 +1,1694 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: "Asap regular";
+  background-color: #f2ebe9;
+}
+
+.forside-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.logo {
+  height: 150px;
+  float: left;
+  transition: opacity 0.3s ease;
+}
+
+nav {
+  background-color: rgba(255, 255, 255, 0); /* Transparent */
+  text-decoration: none;
+  color: black;
+}
+
+nav ul {
+  float: right;
+  list-style: none;
+  margin-right: 10px;
+  position: relative;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+nav ul li a {
+  line-height: 70px;
+  font-size: 20px;
+  padding: 8px 15px;
+  color: black;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  opacity: 0.5;
+}
+
+nav ul li:hover > ul {
+  opacity: 1;
+  visibility: visible;
+  top: 70px;
+}
+
+nav ul ul {
+  position: absolute;
+  top: 90px;
+  opacity: 0;
+  visibility: hidden;
+  transition: top 0.3s;
+}
+
+nav ul ul li {
+  position: relative;
+  margin: 0;
+  width: 150px;
+  float: none;
+  display: list-item;
+  border-radius: 3px;
+  box-shadow: 0 0 5px #7d7576;
+}
+
+nav ul ul li a {
+  line-height: 10px;
+  font-size: 18px;
+}
+
+/* Ændrer menu tekst farve kun på om_mig.html */
+.om-mig-page .menu li a {
+  color: white;
+}
+
+/* Skjult sort logo for scroll state */
+.default-logo {
+  display: none;
+}
+
+/* Scrolled nav */
+.scrolled nav {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 0px 0;
+}
+
+.scrolled nav ul li a {
+  color: rgb(0, 0, 0);
+}
+
+.scrolled .default-logo {
+  display: none;
+}
+
+.scrolled .scroll-logo {
+  display: block;
+  height: 100px;
+}
+
+/* Display the white logo by default */
+.default-logo {
+  display: block; /* Visible initially */
+}
+
+.scroll-logo {
+  display: none; /* Hidden initially */
+}
+
+/* When scrolled */
+.scrolled .default-logo {
+  display: none; /* Hide the default logo when scrolled */
+}
+
+.scrolled .scroll-logo {
+  display: block; /* Show the black logo when scrolled */
+}
+
+/* Submenu styling */
+nav ul ul {
+  position: absolute;
+  top: 90px;
+  opacity: 0;
+  visibility: hidden;
+  transition: top 0.3s;
+}
+
+nav ul ul li {
+  position: relative;
+  margin: 0;
+  width: 150px;
+  float: none;
+  display: list-item;
+  border-radius: 3px;
+  box-shadow: 0 0 5px #575252;
+}
+
+nav ul ul li a {
+  line-height: 50px;
+  font-size: 18px;
+}
+.logo:hover,
+.scroll-logo:hover {
+  transform: scale(1.2);
+}
+/* Burger menu styling */
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  z-index: 1001;
+}
+
+.burger-menu .bar {
+  width: 30px;
+  height: 4px;
+  background-color: black;
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+/* Gemt dropdown menu */
+.dropdown-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  background-color: white;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu li {
+  list-style: none;
+}
+
+.dropdown-menu li a {
+  padding: 15px;
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #e2dbd9;
+}
+
+/* Media queries for mindre skærme */
+@media (max-width: 768px) {
+  .menu {
+    display: none; /* Skjul normal menu på mindre skærme */
+  }
+
+  .default-logo,
+  .scroll-logo {
+    display: none; /* Skjuler begge logoer på mindre skærme */
+  }
+
+  .burger-menu {
+    display: flex; /* Vis burger menu */
+  }
+}
+
+/* Active class for at vise dropdown menu */
+.show {
+  display: flex !important; /* Vis dropdown ved klik på burgermenu */
+}
+
+/* Forside sektion */
+.background img {
+  width: 100%;
+}
+.typing-container {
+  position: absolute;
+  left: 50px;
+  top: 350px;
+  padding-bottom: 30px;
+  font-size: 58px;
+  font-weight: bolder;
+  color: rgb(255, 255, 255);
+  white-space: nowrap;
+  transform: scale(1, 1.5);
+}
+
+.cursor {
+  display: inline-block;
+  background-color: rgb(173, 167, 167);
+  width: 2px;
+  height: 72px;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.below-text {
+  position: absolute;
+  left: 50px;
+  top: 430px;
+  font-size: 28px;
+  color: rgb(255, 255, 255);
+}
+
+/* Erfaringer i sektion */
+.program-section {
+  background-color: #384e46;
+  width: 100%;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.program-section h2 {
+  color: rgb(255, 255, 255);
+  font-size: 36px;
+  margin: 0;
+}
+.program-section h2:hover {
+  transform: scale(1.1);
+}
+
+.program-section p {
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  margin: 0;
+}
+.experience-gif {
+  width: 40px;
+  height: auto;
+  display: block;
+  margin: 2px auto;
+}
+
+/* Ikon container */
+.icon-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; /* Tillad ikonerne at wrappe på mindre skærme */
+  padding-top: 20px;
+}
+
+.icon-container img {
+  width: 60px;
+  height: 60px;
+}
+.icon-container img:hover {
+  transform: scale(1.2); /* Enlarge icon to 120% on hover */
+}
+
+/* Velkommen til mit kreative univers sektion */
+.info-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0px;
+  padding: 30px;
+  background-color: #f2ebe9;
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-content h2 {
+  font-size: 52px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.text-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+/* Knap-styling */
+.cta-button {
+  display: inline-block;
+  background-color: #384e46;
+  width: 255px;
+  text-align: center;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: #000000;
+  border-radius: 3px;
+  font-size: 23px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+/* Billede-styling */
+.image-content img {
+  width: 100%;
+  height: auto;
+}
+
+/* Responsiv justering */
+@media (max-width: 768px) {
+  .info-section {
+    grid-template-columns: 1fr; /* Ændrer layout til én kolonne på mindre skærme */
+    text-align: center;
+  }
+
+  .image-content {
+    margin-top: 20px;
+  }
+}
+
+/* Hvad jeg kan tilbyde sektion */
+.image-section {
+  position: relative;
+  width: 100%;
+  height: 700px;
+}
+
+.image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay med opacitet */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Sort overlay med 50% opacitet */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 50px 100px;
+  color: white;
+}
+
+/* Venstre indhold */
+.content-left h2 {
+  font-size: 36px;
+  font-weight: bold;
+  color: black;
+  white-space: nowrap;
+  margin-bottom: 30px;
+}
+
+.content-left {
+  margin-top: 60px;
+  flex: 0.9;
+  margin-right: 350px;
+}
+
+.content-left p {
+  font-size: 18px;
+  margin: 10px 0;
+  border-bottom: 3px solid #384e46; /* Streg under hvert tekststykke */
+  padding-bottom: 30px;
+  color: black;
+}
+
+/* Fjern stregen fra den sidste paragraf */
+.content-left p:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.p-heading {
+  font-weight: bold;
+  color: #000000;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+/* Responsiv tilpasning */
+
+@media (max-width: 768px) {
+  .overlay {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .content-left,
+  .content-right {
+    margin-bottom: 20px;
+  }
+
+  .content-right h2 {
+    text-align: center;
+  }
+}
+
+/* Linked in sektion */
+.linkedin-section {
+  background-color: #000000;
+  color: white;
+  padding: 10px;
+}
+
+.linkedin-heading {
+  font-size: 36px;
+  margin-bottom: 20px;
+  padding-top: 60px;
+  padding-left: 50px;
+}
+
+.linkedin-paragraph {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding-left: 50px;
+  padding-right: 140px;
+}
+
+.linkedin-content {
+  display: flex;
+  justify-content: left;
+  gap: 30px;
+  padding-left: 130px;
+}
+
+.linkedin-icon,
+.email-icon {
+  width: 40px;
+  height: 40px;
+  transition: opacity 0.3s ease;
+  gap: 30px;
+}
+.linkedin-icon {
+  margin-left: 50px;
+}
+
+.linkedin-icon:hover,
+.email-icon:hover {
+  opacity: 0.8;
+}
+
+.profile-pic {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  transition: transform 0.5s ease;
+}
+
+.profile-pic:hover {
+  transform: rotate(360deg);
+}
+
+/* Projekt slider */
+.slider-section {
+  background-color: #f2ebe9;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-slider {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  width: 400px;
+  height: 300px;
+  margin: 0 15px;
+  opacity: 0.5;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: scale(0.8); /* Gør mindre for de ikke-fremhævede billeder */
+}
+
+.active {
+  opacity: 1;
+  transform: scale(1.1); /* Forstør det midterste billede */
+}
+
+.slider-cta {
+  text-align: center;
+}
+
+.cta-link {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 23px;
+  color: #ffffff;
+  background-color: #384e46;
+  border: #000000;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin-bottom: 30px;
+}
+
+.cta-link:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+/* Projekter side */
+.project-section {
+  display: flex;
+  align-items: center;
+}
+
+.vertical-slider {
+  width: 700px;
+  height: 800px;
+  overflow: hidden;
+  position: relative;
+  padding-left: 20px;
+  padding-top: 0px;
+  padding-bottom: 30px;
+}
+
+.vertical-slider img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+
+.project-content {
+  flex-grow: 1;
+}
+.horizontal-section {
+  margin-top: 500px;
+  padding-left: 40px;
+}
+
+.projects-title {
+  font-family: "magno-serif-variable", sans-serif;
+  font-variation-settings: "wght" 700;
+  font-size: 140px;
+  color: black;
+  margin-bottom: 30px;
+}
+
+.new-section {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  padding: 50px 20px;
+}
+
+.new-section-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.new-section h2 {
+  font-family: "magno-serif-variable", sans-serif;
+  font-variation-settings: "wght" 700;
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.new-section p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* Volume village sektion */
+
+.volume-village-section {
+  background-color: #f2ebe9;
+  display: flex;
+  padding: 50px;
+  padding-bottom: 0px;
+}
+
+.video-container {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  border-radius: 25px;
+}
+
+.text-container {
+  flex: 1;
+}
+
+.text-container h2 {
+  font-family: "magno-serif-variable", sans-serif;
+  font-variation-settings: "wght" 700;
+  font-size: 36px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.text-container p {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.cta-vv {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #384e46;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 23px;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+.cta-vv:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+.volume-village-videos-section {
+  background-color: #f2ebe9;
+  display: flex;
+  padding: 50px;
+  padding-top: 50px;
+}
+
+.text-container {
+  flex: 1;
+  margin-right: 20px;
+  padding-bottom: 0px;
+  padding-top: 20px;
+  padding-left: 30px;
+}
+
+.text-container h2 {
+  font-family: "magno-serif-variable", sans-serif;
+  font-variation-settings: "wght" 700;
+  font-size: 36px;
+  color: #000000;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.text-container p {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #000000;
+}
+
+.videos-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* videoer til højre */
+  gap: 40px;
+  padding-right: 50px;
+}
+
+.videos-container video {
+  width: 30%;
+  height: auto;
+  border-radius: 25px;
+  margin-right: 0;
+  float: right;
+}
+
+/* Vohejl sektion */
+.carousel-section {
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  padding: 70px;
+  position: relative;
+}
+
+.carousel-images {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  margin-left: 50px;
+}
+
+.carousel-image {
+  width: 439px;
+  height: auto;
+  display: none;
+}
+
+.carousel-image.active {
+  display: block;
+}
+
+/* Slider pile */
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #ffffff;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 10;
+}
+
+.carousel-prev {
+  left: 45px;
+}
+
+.carousel-next {
+  left: 600px;
+}
+
+.carousel-text {
+  flex: 1;
+  color: #ffffff;
+  margin-left: 20px;
+}
+
+.carousel-text h2 {
+  font-family: "magno-serif-variable", sans-serif;
+  font-variation-settings: "wght" 700;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.carousel-text p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* Nippon sektion */
+.nippon-section {
+  background-color: #f2ebe9;
+  display: flex;
+  padding: 50px;
+  align-items: center;
+}
+
+.nippon-text {
+  flex: 1;
+  margin-right: 30px;
+}
+
+.nippon-text h2 {
+  font-family: "magno-serif-variable", sans-serif;
+  font-variation-settings: "wght" 700;
+  font-size: 36px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.nippon-text p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #000000;
+}
+
+.nippon-video {
+  flex: 1;
+}
+
+.nippon-video video {
+  width: 100%;
+  max-width: 650px;
+  height: 367px;
+  border-radius: 25px;
+  object-fit: cover;
+}
+
+/* Trøjborg bryg sektion */
+.trojborg-section {
+  background-color: #1e1e1e;
+  display: flex;
+  padding: 50px;
+  height: 650px;
+}
+
+.media-container {
+  position: relative;
+  flex: 1;
+  margin-right: 20px;
+}
+
+.trojborg-image,
+.trojborg-video {
+  border-radius: 0px;
+  position: absolute;
+  width: 350px;
+  height: auto;
+}
+
+.image-1 {
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.image-2 {
+  top: 30px;
+  left: 300px;
+  z-index: 2;
+}
+
+.trojborg-video {
+  top: 250px;
+  left: 300px;
+  z-index: 3;
+  width: 550px;
+  height: auto;
+}
+
+/* Hover effekt: Forstør ved hover */
+.trojborg-image:hover,
+.trojborg-video:hover {
+  transform: scale(1.1); /* Forstørrer */
+  z-index: 4; /* Skub billede foran de andre ved hover */
+}
+
+.text-containerto {
+  flex: 1;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-left: 30px;
+}
+
+.text-containerto h2 {
+  font-family: "magno-serif-variable", sans-serif;
+  font-variation-settings: "wght" 700;
+  font-size: 36px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.text-containerto p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+/* Section styling */
+.interactive-storytelling-section {
+  background-color: #f2ebe9;
+  display: flex;
+  padding: 50px;
+}
+
+/* Text container styling */
+.interactive-text-container {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.interactive-text-container h2 {
+  font-family: "magno-serif-variable", sans-serif;
+  font-variation-settings: "wght" 700;
+  font-size: 36px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.interactive-text-container p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #000000;
+}
+
+/* Media container styling */
+.interactive-media-container {
+  flex: 1;
+  position: relative;
+}
+
+/* Video styling */
+.interactive-video-container video {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Billede styling */
+.interactive-image-container {
+  position: absolute;
+  top: 50%;
+  right: 95%;
+  width: 50%;
+  height: auto;
+  z-index: 1; /* Billede foran video */
+  border-radius: 15px;
+}
+.interactive-image-container:hover,
+.interactive-video-container:hover {
+  transform: scale(1.1); /* Forstørrer */
+  z-index: 4; /* Skub billede foran de andre ved hover */
+}
+
+/* Om mig side */
+
+ul.menudark li a {
+  color: white;
+}
+
+.about-section {
+  display: flex;
+  background-color: #000;
+  color: #fff;
+  padding: 50px;
+  height: 100vh;
+  padding-top: 130px;
+}
+
+.about-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 130px;
+}
+
+.about-left h2,
+.about-left p {
+  margin: 0 50px 20px 20px;
+}
+
+.about-left h2 {
+  font-size: 55px;
+  opacity: 0;
+  transform: translateX(
+    -100px
+  ); /* Startposition uden for skærmen til venstre */
+  transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+/* Animationen til at flyve ind */
+.about-left h2 {
+  animation: fly-in 1s forwards;
+}
+
+@keyframes fly-in {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.about-left p {
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: justify;
+}
+.about-right {
+  position: relative;
+  flex: 1;
+}
+
+.about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Rullende tekst over billede */
+.rolling-text {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #fff;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 3rem;
+}
+
+.rolling-text span {
+  display: inline-block;
+  animation: scroll-text 20s linear infinite;
+}
+
+@keyframes scroll-text {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Gif pil nedad */
+.bottom-center-gif {
+  width: 40px;
+  height: auto;
+  display: block; /* Gør så den står alene på linjen */
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.in-view {
+  transition: transform 0.3s ease;
+  transform: scale(1.05); /* Skalerer sektionen med 5% */
+}
+
+/* Footer Styling */
+.footer {
+  background-color: #384e46;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+}
+
+.contact-info {
+  text-align: left;
+}
+
+.contact-info p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.copyright {
+  text-align: right;
+}
+
+.copyright p {
+  margin: 0;
+}
+
+/* Mediaqueries */
+@media (max-width: 768px) {
+  body,
+  html {
+    font-size: 16px;
+  }
+
+  .forside-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul {
+    float: none;
+    margin: 0;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 10px 0;
+  }
+
+  nav ul li a {
+    font-size: 18px; /* Adjust font size for navigation links */
+  }
+
+  .typing-container {
+    font-size: 26px; /* Adjust font size for typing text */
+    top: 200px; /* Adjust position */
+  }
+
+  .below-text {
+    font-size: 18px; /* Adjust font size */
+    top: 250px; /* Adjust position */
+  }
+
+  .program-section h2 {
+    font-size: 26px; /* Adjust font size */
+  }
+
+  .program-section p {
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .icon-container img {
+    width: 40px; /* Adjust icon size */
+    height: 40px;
+  }
+
+  .info-section {
+    grid-template-columns: 1fr; /* One column layout */
+    text-align: center;
+  }
+
+  .text-content h2 {
+    font-size: 32px; /* Adjust font size */
+  }
+
+  .text-content p {
+    font-size: 16px; /* Adjust font size */
+  }
+
+  .cta-button {
+    font-size: 18px; /* Adjust font size */
+    width: 200px; /* Adjust button width */
+  }
+
+  .image-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(146, 143, 143, 0.5); /* Semi-transparent overlay */
+    color: #fff;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .content-left {
+    max-width: 600px; /* Set a maximum width for the content */
+    margin: 0 auto;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  .p-heading {
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    .image-section {
+      flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+
+    .overlay {
+      padding: 1rem; /* Adjust padding for smaller screens */
+    }
+
+    .content-left {
+      max-width: 100%; /* Full width of the container */
+      padding: 1rem; /* Add padding to the content */
+    }
+
+    h2 {
+      font-size: 1.5rem; /* Adjust heading size for smaller screens */
+    }
+
+    .p-heading {
+      font-size: 1rem; /* Adjust font size for paragraphs */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .image-section {
+      text-align: center; /* Center-align text for very small screens */
+    }
+
+    .overlay {
+      padding: 0.5rem; /* Reduce padding further for very small screens */
+    }
+
+    .content-left {
+      padding: 0.5rem; /* Adjust padding for very small screens */
+    }
+
+    h2 {
+      font-size: 1.2rem; /* Further reduce heading size */
+    }
+
+    .p-heading {
+      font-size: 0.9rem; /* Further reduce font size for paragraphs */
+    }
+  }
+
+  .linkedin-section {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .linkedin-heading,
+  .linkedin-paragraph {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .linkedin-content {
+    justify-content: center;
+    padding-left: 0;
+  }
+
+  .profile-pic {
+    width: 150px; /* Adjust profile pic size */
+    height: 150px;
+  }
+
+  .slider-section {
+    padding: 20px;
+  }
+
+  .image-slider {
+    height: auto; /* Adjust height */
+  }
+
+  .slide {
+    width: 300px; /* Adjust slide width */
+  }
+
+  .project-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .vertical-slider {
+    width: 100%;
+    height: auto;
+    padding: 0;
+  }
+
+  .horizontal-section {
+    padding-left: 0;
+  }
+
+  .projects-title {
+    font-size: 100px; /* Adjust font size */
+  }
+
+  .new-section {
+    padding: 30px 10px;
+  }
+
+  .new-section h2 {
+    font-size: 28px; /* Adjust font size */
+  }
+
+  .new-section p {
+    font-size: 16px; /* Adjust font size */
+  }
+
+  .volume-village-section {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .video-container {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .text-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .videos-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .videos-container video {
+    width: 80%; /* Adjust video size */
+    margin-bottom: 20px;
+  }
+
+  .carousel-section {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .carousel-prev,
+  .carousel-next {
+    font-size: 20px;
+  }
+
+  .nippon-section {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .nippon-video video {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .typing-container {
+    font-size: 28px;
+  }
+
+  .below-text {
+    font-size: 18px;
+  }
+
+  .program-section h2 {
+    font-size: 24px;
+  }
+
+  .program-section p {
+    font-size: 12px;
+  }
+
+  .text-content h2 {
+    font-size: 24px;
+  }
+
+  .text-content p {
+    font-size: 14px;
+  }
+
+  .cta-button {
+    font-size: 16px;
+    width: 150px;
+  }
+
+  .projects-title {
+    font-size: 80px;
+  }
+
+  .new-section h2 {
+    font-size: 24px;
+  }
+
+  .new-section p {
+    font-size: 14px;
+  }
+
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+
+  .carousel-prev,
+  .carousel-next {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1024px) {
+  /* Tablet visning */
+
+  .project-section {
+    flex-direction: column;
+  }
+
+  .projects-title {
+    font-size: 36px;
+  }
+  .horizontal-section {
+    margin-top: 2rem;
+  }
+
+  .new-section-content {
+    text-align: center;
+  }
+
+  .volume-village-section,
+  .volume-village-videos-section,
+  .carousel-section,
+  .nippon-section,
+  .interactive-storytelling-section {
+    padding: 1rem;
+  }
+
+  .volume-village-section .text-container,
+  .volume-village-videos-section .text-container,
+  .carousel-section .carousel-text,
+  .nippon-section .nippon-text,
+  .trojborg-section .text-containerto,
+  .interactive-storytelling-section .interactive-text-container {
+    text-align: center;
+  }
+
+  .videos-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .interactive-media-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .interactive-image-container {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobilvisning (tablet)*/
+
+  .project-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  .projects-title {
+    font-size: 26px;
+  }
+
+  .vertical-slider img {
+    width: 100%;
+    height: auto;
+  }
+
+  .carousel-images {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .carousel-prev,
+  .carousel-next {
+    font-size: 1.5rem;
+  }
+
+  .nippon-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .interactive-video-container,
+  .interactive-image-container {
+    width: 100%;
+  }
+
+  .footer {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Mobilvisning (små telefoner) */
+
+  .project-section .vertical-slider {
+    height: auto;
+  }
+
+  .carousel-prev,
+  .carousel-next {
+    font-size: 1.2rem;
+  }
+
+  .volume-village-section video,
+  .volume-village-videos-section video,
+  .nippon-section video,
+  .interactive-storytelling-section video {
+    width: 100%;
+    height: auto;
+  }
+
+  .carousel-text h2,
+  .carousel-text p,
+  .nippon-section .nippon-text h2,
+  .nippon-section .nippon-text p,
+  .trojborg-section .text-containerto h2,
+  .trojborg-section .text-containerto p,
+  .interactive-storytelling-section .interactive-text-container h2,
+  .interactive-storytelling-section .interactive-text-container p {
+    font-size: 1.5rem;
+  }
+
+  .interactive-storytelling-section .interactive-text-container {
+    padding: 0.5rem;
+  }
+
+  .footer {
+    padding: 1rem;
+  }
+
+  .footer .contact-info p,
+  .footer .copyright p {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 768px) {
+  .trojborg-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .text-containerto {
+    order: -1; /* Move text section before media on smaller screens */
+    margin-bottom: 20px;
+  }
+
+  .media-container {
+    display: flex;
+    flex-direction: row; /* Arrange images side by side */
+    flex-wrap: wrap; /* Allow images to wrap to the next line if needed */
+    justify-content: center; /* Center images horizontally */
+  }
+
+  .trojborg-image {
+    max-width: 35%; /* Make images smaller to fit side by side */
+  }
+
+  .trojborg-video {
+    max-width: 70%; /* Adjust video size on smaller screens */
+  }
+}
+/* Tablet visning */
+@media (max-width: 1024px) {
+  .interactive-storytelling-section {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .interactive-media-container {
+    flex-direction: column;
+  }
+
+  .interactive-image-container {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .interactive-image-container img {
+    max-width: 90%;
+  }
+}
+
+/* Mobilvisning */
+@media (max-width: 768px) {
+  .interactive-storytelling-section {
+    padding: 0.5rem;
+  }
+
+  .interactive-media-container {
+    flex-direction: column;
+  }
+
+  .interactive-image-container {
+    margin-top: 1rem;
+    margin-left: auto;
+    display: flex;
+  }
+
+  .interactive-image-container img {
+    max-width: 80%;
+  }
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 190px;
+  }
+
+  .about-left,
+  .about-right {
+    margin: 0;
+    padding: 10px;
+  }
+
+  .about-right {
+    position: static;
+  }
+
+  .rolling-text {
+    position: static;
+    white-space: normal;
+    animation: none; /* Disable animation on smaller screens */
+  }
+
+  .about-image {
+    max-width: 40%; /* Ensure image is fully responsive */
+    height: auto;
+    margin: 10px auto; /* Reduce margin on very small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    padding: 10px;
+  }
+
+  .about-left,
+  .about-right {
+    margin: 0;
+    padding: 5px;
+  }
+
+  .rolling-text span {
+    font-size: 0.9rem; /* Adjust font size for smaller screens */
+  }
+}
